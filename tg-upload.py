@@ -17,7 +17,7 @@ import hashlib
 tg_upload = "1.1.5"
 versions = f"tg-upload: {tg_upload} \
 Python: {py_ver[0]}.{py_ver[1]}.{py_ver[2]} \
-Pyrogram: {get_dist('pyrogram').version} \
+Hydragram: {get_dist('hydrogram').version} \
 Prettytable: {get_dist('prettytable').version} \
 Pillow: {get_dist('pillow').version} \
 httpx: {get_dist('httpx').version} \
@@ -27,11 +27,11 @@ moviepy {get_dist('moviepy').version} \
 json_endpoint = "https://cdn.thecaduceus.eu.org/tg-upload/release.json"
 
 parser = argparse.ArgumentParser(
-  prog="tg-upload",
-  usage="https://thecaduceus.eu.org/tg-upload",
-  description="An open-source Python program or a CLI Tool to upload/download files/folder to/from Telegram effortlessly.",
-  epilog="An open-source program developed by Dr.Caduceus (GitHub.com/TheCaduceus)"
-  )
+    prog="tg-upload",
+    usage="https://thecaduceus.eu.org/tg-upload",
+    description="An open-source Python program or a CLI Tool to upload/download files/folder to/from Telegram effortlessly.",
+    epilog="An open-source program developed by Dr.Caduceus (GitHub.com/TheCaduceus)"
+)
 
 # CONNECTIVITY FLAGS
 parser.add_argument("--ipv6", default=env.get("TG_UPLOAD_IPV6", "False").lower() in {"true", "t", "1"}, action="store_true", help="Connect to Telegram using your device's IPv6, by default IPv4.")
