@@ -461,7 +461,7 @@ with client:
   if args.login_only:
     exit("Authorization completed!")
   elif args.export_string:
-    exit(f"Your session string:\n{client.export_session_string()}")
+    exit(f"Your session string:\n{client.export_session()}")
   elif args.logout:
     client.log_out()
     exit(f"Terminated [{args.profile}]")
