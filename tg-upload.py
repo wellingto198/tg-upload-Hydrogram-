@@ -417,7 +417,7 @@ elif not args.api_id or not args.api_hash:
   if not Path(f'{args.profile}.session').exists() and not args.login_string:
     raise ValueError("Given profile is not yet initialized! provide API_ID and API_HASH to initialize.")
 
-from pyrogram import Client, enums, errors
+from hydrogram import Client, enums, errors
 
 if args.phone:
   client = Client(
@@ -528,7 +528,7 @@ with client:
           chat_id, message_id = validate_link(link)
           try:
             message = client.get_messages(chat_id, message_id)
-          except errors.exceptions.bad_request_400.ChannelInvalid:
+          except errors.ChannelInvalid:
             print(f"Error: No access to {link}")
             continue
           except ValueError as error_code:
@@ -604,7 +604,7 @@ with client:
         for msg_id in args.msg_id:
           try:
             message = client.get_messages(args.chat_id, msg_id)
-          except errors.exceptions.bad_request_400.ChannelInvalid:
+          except errors.ChannelInvalid:
             exit(f"Error: No access to {args.chat_id}.")
           except ValueError as error_code:
             exit(f"\n{error_code} - {args.chat_id}")
